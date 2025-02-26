@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Volunteer Hub - Home</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Navbar with Logo -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary-custom">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="assets/logo.jpg"
+            alt="Volunteer Hub Logo"
+            height="40"
+            class="d-inline-block align-text-top me-2"
+          />
+          Volunteer Hub
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">Profile</a>
+            </li>
+            <li class="nav-item" id="adminMenu" style="display: none;">
+              <a class="nav-link" href="admin.html">Admin Panel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-light py-5 text-center">
+      <div class="container">
+        <h1 class="display-4 text-purple">Welcome to Volunteer Hub</h1>
+        <p class="lead text-secondary">
+          Join our community of passionate volunteers making a real impact!
+        </p>
+      </div>
+    </section>
+
+    <!-- Volunteering Info Section -->
+    <section class="container my-5">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2 class="text-purple">Why Volunteer?</h2>
+          <p>
+            Volunteering gives you a chance to support your community,
+            develop new skills, and build lasting relationships. Discover
+            opportunities that fit your passion and schedule!
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="assets/volunteering.jpg"
+            alt="Volunteering Illustration"
+            class="img-fluid rounded shadow"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Carousel of Volunteer Photos -->
+    <section class="container mb-5">
+      <h2 class="text-purple mb-4">Our Volunteers in Action</h2>
+      <div id="volunteerCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="assets/volunteer1.jpg"
+              class="d-block w-100 rounded"
+              alt="Volunteer 1"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="assets/volunteer2.jpg"
+              class="d-block w-100 rounded"
+              alt="Volunteer 2"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="assets/volunteer3.jpg"
+              class="d-block w-100 rounded"
+              alt="Volunteer 3"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="assets/volunteer4.jpg"
+              class="d-block w-100 rounded"
+              alt="Volunteer 4"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="assets/volunteer5.jpg"
+              class="d-block w-100 rounded"
+              alt="Volunteer 5"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#volunteerCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#volunteerCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Open Events Section -->
+    <section class="container mb-5">
+      <h2 class="text-purple mb-4">Open for Registration</h2>
+      <div id="openEventsContainer" class="row g-4">
+        <!-- Event cards will be injected here by home.js -->
+      </div>
+    </section>
+
+    <!-- Event Details Modal -->
+    <div
+      class="modal fade"
+      id="eventDetailsModal"
+      tabindex="-1"
+      aria-labelledby="eventDetailsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary-custom text-white">
+            <h5 class="modal-title" id="eventDetailsModalLabel">
+              Event Details
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h3 id="modalEventTitle" class="text-purple"></h3>
+            <p id="modalEventDescription"></p>
+            <p>
+              <strong>Date:</strong> <span id="modalEventDate"></span>
+            </p>
+            <p>
+              <strong>Location:</strong> <span id="modalEventLocation"></span>
+            </p>
+            <p>
+              <strong>Tasks:</strong> <span id="modalEventTasks"></span>
+            </p>
+            <p>
+              <strong>Benefits:</strong> <span id="modalEventBenefits"></span>
+            </p>
+            <p>
+              <strong>Criteria:</strong> <span id="modalEventCriteria"></span>
+            </p>
+            <p>
+              <strong>Volunteer Capacity:</strong>
+              <span id="modalEventCapacity"></span>
+            </p>
+            <p>
+              <strong>Currently Registered:</strong>
+              <span id="modalEventVolunteerCount"></span>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              id="modalRegisterBtn"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-3 bg-primary-custom text-white text-center">
+      <div class="container">
+        <p>&copy; 2025 Volunteer Hub. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>

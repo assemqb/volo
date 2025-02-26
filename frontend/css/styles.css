@@ -1,0 +1,42 @@
+:root {
+  --purple: #6f42c1;
+  --yellow: #ffc107;
+}
+
+/* Navbar customization */
+.bg-primary-custom {
+  background-color: var(--purple) !important;
+}
+
+/* Link and heading styles */
+.text-purple {
+  color: var(--purple) !important;
+}
+
+/* Button Overrides */
+.btn-warning {
+  background-color: var(--yellow);
+  border-color: var(--yellow);
+  color: #000;
+}
+.btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+/* Footer style */
+footer {
+  background-color: var(--purple);
+}
+
+/* Additional custom styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Carousel images */
+.carousel-item img {
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
