@@ -52,7 +52,7 @@ async function loadProfileInfo() {
     return;
   }
   try {
-    const res = await fetch("http://localhost:8000/api/users/me", {
+    const res = await fetch("https://volo-iila.onrender.com/api/users/me", {
       headers: { Authorization: "Bearer " + token },
     });
     const profile = await res.json();
@@ -93,7 +93,7 @@ async function updateProfile(e) {
   const experience = document.getElementById("experience").value;
 
   try {
-    const res = await fetch("http://localhost:8000/api/users/me", {
+    const res = await fetch("https://volo-iila.onrender.com/api/users/me", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -122,7 +122,7 @@ async function deleteProfile() {
   }
   const token = localStorage.getItem("access_token");
   try {
-    const res = await fetch("http://localhost:8000/api/users/me", {
+    const res = await fetch("https://volo-iila.onrender.com/api/users/me", {
       method: "DELETE",
       headers: { Authorization: "Bearer " + token },
     });
@@ -145,7 +145,7 @@ async function loadMyRegistrations() {
   const token = localStorage.getItem("access_token");
   if (!token) return;
   try {
-    const res = await fetch("http://localhost:8000/api/registrations/me", {
+    const res = await fetch("https://volo-iila.onrender.com/api/registrations/me", {
       headers: { Authorization: "Bearer " + token },
     });
     const data = await res.json();
@@ -176,7 +176,7 @@ async function loadMyRegistrations() {
           const regId = e.target.getAttribute("data-reg-id");
           if (confirm("Are you sure you want to delete this registration?")) {
             try {
-              const delRes = await fetch(`http://localhost:8000/api/registrations/${regId}`, {
+              const delRes = await fetch(`https://volo-iila.onrender.com/api/registrations/${regId}`, {
                 method: "DELETE",
                 headers: { Authorization: "Bearer " + token },
               });

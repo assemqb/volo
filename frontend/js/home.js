@@ -15,7 +15,7 @@ async function loadOpenEvents(filters = {}) {
       query = "?" + params.toString();
     }
     
-    const res = await fetch("http://localhost:8000/api/events" + query);
+    const res = await fetch("https://volo-iila.onrender.com/api/events" + query);
     const events = await res.json();
     console.log("Fetched events:", events);
     eventsCache = events; // Cache the events for modal lookup
@@ -88,7 +88,7 @@ async function registerForEvent(eventId) {
   }
   
   try {
-    const res = await fetch("http://localhost:8000/api/registrations/", {
+    const res = await fetch("https://volo-iila.onrender.com/api/registrations/", {
       method: "POST",
       headers: { 
         "Content-Type": "application/json",

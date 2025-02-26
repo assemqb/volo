@@ -26,3 +26,7 @@ app.include_router(events.router, prefix="/api/events", tags=["events"])
 app.include_router(users.router, prefix="/api/users", tags=["users"])
 app.include_router(registrations.router, prefix="/api/registrations", tags=["registrations"])
 app.include_router(admin.router, prefix="/api/admin", tags=["admin"])
+
+@app.get("/")
+async def root():
+    return {"message": "Welcome to Volunteer Hub API!"}

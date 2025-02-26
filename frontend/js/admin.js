@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const token = localStorage.getItem("access_token");
     if (!token) return (window.location.href = "login.html");
     try {
-      const res = await fetch("http://localhost:8000/api/admin/events", {
+      const res = await fetch("https://volo-iila.onrender.com/api/admin/events", {
         headers: { Authorization: "Bearer " + token },
       });
       const events = await res.json();
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!token) return;
     if (!confirm("Are you sure you want to delete this event?")) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/admin/events/${eventId}`, {
+      const res = await fetch(`https://volo-iila.onrender.com/api/admin/events/${eventId}`, {
         method: "DELETE",
         headers: { Authorization: "Bearer " + token },
       });
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   
     try {
-      const res = await fetch(`http://localhost:8000/api/admin/events/${eventId}`, {
+      const res = await fetch(`https://volo-iila.onrender.com/api/admin/events/${eventId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadAdminEventOptions() {
     const token = localStorage.getItem("access_token");
     try {
-      const res = await fetch("http://localhost:8000/api/admin/events", {
+      const res = await fetch("https://volo-iila.onrender.com/api/admin/events", {
         headers: { Authorization: "Bearer " + token },
       });
       const events = await res.json();
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadEventRegistrations(eventId) {
     const token = localStorage.getItem("access_token");
     try {
-      const res = await fetch(`http://localhost:8000/api/admin/events/${eventId}/registrations`, {
+      const res = await fetch(`https://volo-iila.onrender.com/api/admin/events/${eventId}/registrations`, {
         headers: { Authorization: "Bearer " + token },
       });
       const regs = await res.json();
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const token = localStorage.getItem("access_token");
     if (!confirm("Approve this registration?")) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/admin/registrations/${registrationId}/approve`, {
+      const res = await fetch(`https://volo-iila.onrender.com/api/admin/registrations/${registrationId}/approve`, {
         method: "PUT",
         headers: { Authorization: "Bearer " + token },
       });
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const token = localStorage.getItem("access_token");
     if (!confirm("Reject this registration?")) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/admin/registrations/${registrationId}/reject`, {
+      const res = await fetch(`https://volo-iila.onrender.com/api/admin/registrations/${registrationId}/reject`, {
         method: "PUT",
         headers: { Authorization: "Bearer " + token },
       });

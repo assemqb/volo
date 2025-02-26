@@ -10,7 +10,7 @@ async function loadEvents(filters = {}) {
       query = '?' + params.toString();
     }
     
-    const res = await fetch("http://localhost:8000/api/events" + query);
+    const res = await fetch("https://volo-iila.onrender.com/api/events" + query);
     const events = await res.json();
     console.log("Fetched events:", events);
     const container = document.getElementById("eventsContainer");
@@ -46,7 +46,7 @@ async function registerEvent(eventId) {
   if (!token) return window.location.href = "login.html";
   
   try {
-    const res = await fetch("http://localhost:8000/api/registrations/", {
+    const res = await fetch("https://volo-iila.onrender.com/api/registrations/", {
       method: "POST",
       headers: { 
         "Content-Type": "application/json",
@@ -89,7 +89,7 @@ if (createEventForm) {
     
     const token = localStorage.getItem("access_token");
     try {
-      const res = await fetch("http://localhost:8000/api/events/", {
+      const res = await fetch("https://volo-iila.onrender.com/api/events/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

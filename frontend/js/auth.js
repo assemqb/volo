@@ -6,7 +6,7 @@ if (loginForm) {
     const phone = document.getElementById("phone").value;
     const password = document.getElementById("password").value;
     try {
-      const res = await fetch("http://localhost:8000/api/auth/login", {
+      const res = await fetch("https://volo-iila.onrender.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone, password }),
@@ -14,7 +14,7 @@ if (loginForm) {
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem("access_token", data.access_token);
-        const profileRes = await fetch("http://localhost:8000/api/users/me", {
+        const profileRes = await fetch("https://volo-iila.onrender.com/api/users/me", {
           headers: { Authorization: "Bearer " + data.access_token },
         });
         const profile = await profileRes.json();
@@ -45,7 +45,7 @@ if (registerForm) {
     const experience = document.getElementById("experience").value;
     const password = document.getElementById("password").value;
     try {
-      const res = await fetch("http://localhost:8000/api/auth/register", {
+      const res = await fetch("https://volo-iila.onrender.com/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone, nickname, full_name, age, languages, experience, password }),
